@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 apply plugin: 'realm-android'
 
 android {
@@ -32,11 +31,12 @@ android {
         }
     }
 
-    productFlavors {
-        google {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "google"]
-        }
-    }
+    // http://blog.csdn.net/small_technical/article/details/72782671
+//    productFlavors {
+//        google {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "google"]
+//        }
+//    }
 
     packagingOptions {
         exclude "lib/mips/librealm-jni.so"
@@ -58,9 +58,9 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/tbs_sdk_thirdapp_v2.2.0.1096_36549_sharewithdownload_withoutGame_obfs_20160830_211645.jar')
     testCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support:support-annotations:25.1.0'
-    androidTestCompile 'com.android.support.test:runner:0.5'
-    androidTestCompile 'com.android.support.test:rules:0.5'
+    androidTestCompile 'com.android.support:support-annotations:26.0.2'
+    androidTestCompile 'com.android.support.test:runner:1.0.1'
+    androidTestCompile 'com.android.support.test:rules:1.0.1'
 
     //base
     compile rootProject.ext.dependencies["appcompat-v7"]
@@ -94,9 +94,9 @@ dependencies {
 
     //di
     compile rootProject.ext.dependencies["dagger"]
-    compile rootProject.ext.dependencies["dagger-compiler"]
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
-    apt rootProject.ext.dependencies["butterknife-compiler"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     provided rootProject.ext.dependencies["annotation"]
 
     //other
@@ -106,8 +106,7 @@ dependencies {
     compile rootProject.ext.dependencies["crashreport"]
 
     //canary
-    debugCompile rootProject.ext.dependencies["blockcanary-android"]
-    releaseCompile rootProject.ext.dependencies["blockcanary-no-op"]
+    compile rootProject.ext.dependencies["blockcanary-android"]
     debugCompile rootProject.ext.dependencies["leakcanary-android"]
     releaseCompile rootProject.ext.dependencies["leakcanary-android-no-op"]
 }

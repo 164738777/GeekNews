@@ -4,10 +4,12 @@ apply from: "config.gradle"
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        // https://realm.io/docs/java/latest 4.3.3
         classpath "io.realm:realm-gradle-plugin:3.1.1"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -19,6 +21,7 @@ allprojects {
     repositories {
         jcenter()
         maven { url "https://jitpack.io" }
+        google()
     }
 }
 

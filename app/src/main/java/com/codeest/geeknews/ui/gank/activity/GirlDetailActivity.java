@@ -20,11 +20,11 @@ import com.codeest.geeknews.model.db.RealmHelper;
 import com.codeest.geeknews.util.ShareUtil;
 import com.codeest.geeknews.util.SystemUtil;
 import com.codeest.geeknews.util.ToastUtil;
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
-import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  * Created by codeest on 16/8/20.

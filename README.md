@@ -87,6 +87,9 @@ GeekNews, A pure reading App based on Material Design + MVP + RxJava2 + Retrofit
 
 1.提交第一版
 
+## FIXME
+1. 搜藏页面崩溃
+
 ## Thanks
 
 ### API:
