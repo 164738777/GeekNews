@@ -11,6 +11,7 @@ import com.codeest.geeknews.component.ImageLoader;
 import com.codeest.geeknews.model.bean.WelcomeBean;
 import com.codeest.geeknews.presenter.main.WelcomePresenter;
 import com.codeest.geeknews.base.contract.main.WelcomeContract;
+import com.codeest.geeknews.util.Misc;
 
 import butterknife.BindView;
 
@@ -49,9 +50,7 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
 
     @Override
     public void jumpToMain() {
-        Intent intent = new Intent();
-        intent.setClass(this,MainActivity.class);
-        startActivity(intent);
+        Misc.startActivity(this, MainActivity.class);
         finish();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }

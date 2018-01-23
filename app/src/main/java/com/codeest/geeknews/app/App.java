@@ -58,6 +58,7 @@ public class App extends Application{
         InitializeService.start(this);
     }
 
+    @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);

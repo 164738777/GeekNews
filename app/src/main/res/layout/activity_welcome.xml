@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/iv_welcome_bg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:src="@mipmap/bg_about"/>
 
     <TextView
         android:id="@+id/tv_welcome_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
+        android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
+        android:textColor="@android:color/white"
         android:textSize="14sp"
-        android:layout_gravity="bottom|end"/>
+        tools:text="ssssss"/>
 
 </FrameLayout>

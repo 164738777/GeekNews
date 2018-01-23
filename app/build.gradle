@@ -104,6 +104,7 @@ dependencies {
     compile rootProject.ext.dependencies["logger"]
     compile rootProject.ext.dependencies["fragmentation"]
     compile rootProject.ext.dependencies["crashreport"]
+    compile rootProject.ext.dependencies["guava"]
 
     //canary
     compile rootProject.ext.dependencies["blockcanary-android"]

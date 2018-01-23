@@ -73,6 +73,7 @@ ext {
             // https://github.com/YoKeyword/Fragmentation
             "fragmentation"             : "me.yokeyword:fragmentation:1.2.4",
             "crashreport"               : "com.tencent.bugly:crashreport:latest.release",
+            "guava"                     : "com.google.guava:guava:23.6-android",
 
             //canary
             // https://github.com/markzhai/AndroidPerformanceMonitor
