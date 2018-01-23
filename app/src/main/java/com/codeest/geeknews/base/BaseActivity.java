@@ -35,14 +35,16 @@ public abstract class BaseActivity<T extends BasePresenter> extends SimpleActivi
     protected void onViewCreated() {
         super.onViewCreated();
         initInject();
-        if (mPresenter != null)
+        if (mPresenter != null) {
             mPresenter.attachView(this);
+        }
     }
 
     @Override
     protected void onDestroy() {
-        if (mPresenter != null)
+        if (mPresenter != null) {
             mPresenter.detachView();
+        }
         super.onDestroy();
     }
 
@@ -65,22 +67,18 @@ public abstract class BaseActivity<T extends BasePresenter> extends SimpleActivi
 
     @Override
     public void stateError() {
-
     }
 
     @Override
     public void stateEmpty() {
-
     }
 
     @Override
     public void stateLoading() {
-
     }
 
     @Override
     public void stateMain() {
-
     }
 
     protected abstract void initInject();

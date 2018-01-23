@@ -53,27 +53,22 @@ public abstract class BaseFragment<T extends BasePresenter> extends SimpleFragme
 
     @Override
     public void useNightMode(boolean isNight) {
-
     }
 
     @Override
     public void stateError() {
-
     }
 
     @Override
     public void stateEmpty() {
-
     }
 
     @Override
     public void stateLoading() {
-
     }
 
     @Override
     public void stateMain() {
-
     }
 
     protected abstract void initInject();

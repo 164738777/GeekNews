@@ -1,9 +1,10 @@
 package com.codeest.geeknews.di.component;
 
 import android.app.Activity;
+import dagger.Component;
 
-import com.codeest.geeknews.di.scope.FragmentScope;
 import com.codeest.geeknews.di.module.FragmentModule;
+import com.codeest.geeknews.di.scope.FragmentScope;
 import com.codeest.geeknews.ui.gank.fragment.GirlFragment;
 import com.codeest.geeknews.ui.gank.fragment.TechFragment;
 import com.codeest.geeknews.ui.gold.fragment.GoldMainFragment;
@@ -18,8 +19,6 @@ import com.codeest.geeknews.ui.zhihu.fragment.HotFragment;
 import com.codeest.geeknews.ui.zhihu.fragment.SectionFragment;
 import com.codeest.geeknews.ui.zhihu.fragment.ThemeFragment;
 
-import dagger.Component;
-
 /**
  * Created by codeest on 16/8/7.
  */
@@ -30,6 +29,7 @@ public interface FragmentComponent {
 
     Activity getActivity();
 
+    // 不能直接注入BaseFragment, 因为加了BasePresenter接口泛型, 无法实例化
     void inject(DailyFragment dailyFragment);
 
     void inject(ThemeFragment themeFragment);
