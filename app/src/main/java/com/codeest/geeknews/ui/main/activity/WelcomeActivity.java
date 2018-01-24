@@ -1,19 +1,17 @@
 package com.codeest.geeknews.ui.main.activity;
 
-import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
+import butterknife.BindView;
 
 import com.bumptech.glide.Glide;
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.base.BaseActivity;
+import com.codeest.geeknews.base.contract.main.WelcomeContract;
 import com.codeest.geeknews.component.ImageLoader;
 import com.codeest.geeknews.model.bean.WelcomeBean;
 import com.codeest.geeknews.presenter.main.WelcomePresenter;
-import com.codeest.geeknews.base.contract.main.WelcomeContract;
 import com.codeest.geeknews.util.Misc;
-
-import butterknife.BindView;
 
 /**
  * Created by codeest on 16/8/15.
