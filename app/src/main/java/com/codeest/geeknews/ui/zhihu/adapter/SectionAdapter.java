@@ -1,28 +1,29 @@
 package com.codeest.geeknews.ui.zhihu.adapter;
 
+import static com.codeest.geeknews.app.Constants.IT_ZHIHU_SECTION_ID;
+import static com.codeest.geeknews.app.Constants.IT_ZHIHU_SECTION_TITLE;
+
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.App;
 import com.codeest.geeknews.component.ImageLoader;
 import com.codeest.geeknews.model.bean.SectionListBean;
 import com.codeest.geeknews.ui.zhihu.activity.SectionActivity;
+import com.codeest.geeknews.util.Misc;
 import com.codeest.geeknews.util.SystemUtil;
 
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static com.codeest.geeknews.app.Constants.IT_ZHIHU_SECTION_ID;
-import static com.codeest.geeknews.app.Constants.IT_ZHIHU_SECTION_TITLE;
 
 /**
  * Created by codeest on 16/8/21.
@@ -58,11 +59,10 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(mContext, SectionActivity.class);
-                intent.putExtra(IT_ZHIHU_SECTION_ID, mList.get(holder.getAdapterPosition()).getId());
-                intent.putExtra(IT_ZHIHU_SECTION_TITLE, mList.get(holder.getAdapterPosition()).getName());
-                mContext.startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putInt(IT_ZHIHU_SECTION_ID, mList.get(holder.getAdapterPosition()).getId());
+                bundle.putString(IT_ZHIHU_SECTION_TITLE, mList.get(holder.getAdapterPosition()).getName());
+                Misc.startActivity(mContext, SectionActivity.class, bundle);
             }
         });
     }

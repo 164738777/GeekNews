@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.Constants;
@@ -18,11 +20,9 @@ import com.codeest.geeknews.ui.gank.activity.GirlDetailActivity;
 import com.codeest.geeknews.ui.gank.activity.TechDetailActivity;
 import com.codeest.geeknews.ui.vtex.activity.RepliesActivity;
 import com.codeest.geeknews.ui.zhihu.activity.ZhihuDetailActivity;
+import com.codeest.geeknews.util.Misc;
 
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by codeest on 16/8/23.
@@ -224,9 +224,6 @@ public class LikeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
 
     private void gotoVtexDetail(String topicId) {
-        Intent intent = new Intent();
-        intent.setClass(mContext, RepliesActivity.class);
-        intent.putExtra(Constants.IT_VTEX_TOPIC_ID,topicId);
-        mContext.startActivity(intent);
+        Misc.startActivity(mContext, RepliesActivity.class, Constants.IT_VTEX_TOPIC_ID, topicId);
     }
 }

@@ -1,24 +1,23 @@
 package com.codeest.geeknews.ui.vtex.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.Constants;
 import com.codeest.geeknews.component.ImageLoader;
 import com.codeest.geeknews.model.bean.TopicListBean;
 import com.codeest.geeknews.ui.vtex.activity.RepliesActivity;
+import com.codeest.geeknews.util.Misc;
 import com.codeest.geeknews.widget.SquareImageView;
 
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by codeest on 16/12/23.
@@ -53,10 +52,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(mContext, RepliesActivity.class);
-                intent.putExtra(Constants.IT_VTEX_TOPIC_ID, mList.get(holder.getAdapterPosition()).getTopicId());
-                mContext.startActivity(intent);
+                Misc.startActivity(mContext, RepliesActivity.class, Constants.IT_VTEX_TOPIC_ID, mList.get(holder.getAdapterPosition()).getTopicId());
             }
         });
     }

@@ -1,7 +1,6 @@
 package com.codeest.geeknews.ui.vtex.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.ArrayMap;
 import android.support.v7.widget.RecyclerView;
@@ -9,15 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.Constants;
 import com.codeest.geeknews.ui.vtex.activity.NodeListActivity;
+import com.codeest.geeknews.util.Misc;
 import com.codeest.geeknews.util.SystemUtil;
 import com.codeest.geeknews.widget.FlowLayout;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by codeest on 16/12/29.
@@ -83,10 +82,7 @@ public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.ViewHolder> {
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent();
-            intent.setClass(mContext, NodeListActivity.class);
-            intent.putExtra(Constants.IT_VTEX_NODE_NAME, nodeName);
-            mContext.startActivity(intent);
+            Misc.startActivity(mContext, NodeListActivity.class, Constants.IT_VTEX_NODE_NAME, nodeName);
         }
     }
 }

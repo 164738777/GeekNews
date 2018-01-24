@@ -1,7 +1,7 @@
 package com.codeest.geeknews.ui.zhihu.adapter;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +14,7 @@ import com.codeest.geeknews.app.Constants;
 import com.codeest.geeknews.component.ImageLoader;
 import com.codeest.geeknews.model.bean.DailyListBean;
 import com.codeest.geeknews.ui.zhihu.activity.ZhihuDetailActivity;
+import com.codeest.geeknews.util.Misc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,19 +48,18 @@ public class TopPagerAdapter extends PagerAdapter{
     public Object instantiateItem(ViewGroup container, final int position)
     {
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_top_pager, container, false);
-        ImageView ivImage = (ImageView) view.findViewById(R.id.iv_top_image);
-        TextView tvTitle = (TextView) view.findViewById(R.id.tv_top_title);
+        ImageView ivImage = view.findViewById(R.id.iv_top_image);
+        TextView tvTitle = view.findViewById(R.id.tv_top_title);
         ImageLoader.load(mContext,mList.get(position).getImage(),ivImage);
         tvTitle.setText(mList.get(position).getTitle());
         final int id = mList.get(position).getId();
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(mContext, ZhihuDetailActivity.class);
-                intent.putExtra(Constants.IT_ZHIHU_DETAIL_ID, id);
-                intent.putExtra(Constants.IT_ZHIHU_DETAIL_TRANSITION, true);
-                mContext.startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putInt(Constants.IT_ZHIHU_DETAIL_ID, id);
+                bundle.putBoolean(Constants.IT_ZHIHU_DETAIL_TRANSITION, true);
+                Misc.startActivity(mContext, ZhihuDetailActivity.class, bundle);
             }
         });
         container.addView(view);

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import butterknife.BindView;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.App;
@@ -19,14 +21,13 @@ import com.codeest.geeknews.base.SimpleActivity;
 import com.codeest.geeknews.model.bean.RealmLikeBean;
 import com.codeest.geeknews.model.db.RealmHelper;
 import com.codeest.geeknews.model.prefs.ImplPreferencesHelper;
+import com.codeest.geeknews.util.Misc;
 import com.codeest.geeknews.util.ShareUtil;
 import com.codeest.geeknews.util.SystemUtil;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
-
-import butterknife.BindView;
 
 /**
  * Created by codeest on 16/8/20.
@@ -242,14 +243,13 @@ public class TechDetailActivity extends SimpleActivity {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(builder.mActivity, builder.shareView, "shareView");
             builder.mContext.startActivity(intent,options.toBundle());
         } else {
-            Intent intent = new Intent();
-            intent.setClass(builder.mContext, TechDetailActivity.class);
-            intent.putExtra(Constants.IT_GANK_DETAIL_URL, builder.url);
-            intent.putExtra(Constants.IT_GANK_DETAIL_IMG_URL, builder.imgUrl);
-            intent.putExtra(Constants.IT_GANK_DETAIL_TITLE, builder.title);
-            intent.putExtra(Constants.IT_GANK_DETAIL_ID, builder.id);
-            intent.putExtra(Constants.IT_GANK_DETAIL_TYPE, builder.type);
-            builder.mContext.startActivity(intent);
+            Bundle bundle = new Bundle();
+            bundle.putString(Constants.IT_GANK_DETAIL_URL, builder.url);
+            bundle.putString(Constants.IT_GANK_DETAIL_IMG_URL, builder.imgUrl);
+            bundle.putString(Constants.IT_GANK_DETAIL_TITLE, builder.title);
+            bundle.putString(Constants.IT_GANK_DETAIL_ID, builder.id);
+            bundle.putInt(Constants.IT_GANK_DETAIL_TYPE, builder.type);
+            Misc.startActivity(builder.mContext, TechDetailActivity.class, bundle);
         }
     }
 }

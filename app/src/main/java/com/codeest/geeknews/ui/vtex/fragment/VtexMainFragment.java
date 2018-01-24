@@ -1,21 +1,20 @@
 package com.codeest.geeknews.ui.vtex.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.Constants;
 import com.codeest.geeknews.base.SimpleFragment;
 import com.codeest.geeknews.ui.vtex.activity.NodeActivity;
 import com.codeest.geeknews.ui.vtex.adapter.VtexPagerAdapter;
+import com.codeest.geeknews.util.Misc;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by codeest on 16/12/19.
@@ -56,7 +55,6 @@ public class VtexMainFragment extends SimpleFragment {
 
     @OnClick(R.id.iv_vtex_menu)
     void gotoNode() {
-        Intent intent = new Intent(getActivity(), NodeActivity.class);
-        mContext.startActivity(intent);
+        Misc.startActivity(mContext, NodeActivity.class);
     }
 }

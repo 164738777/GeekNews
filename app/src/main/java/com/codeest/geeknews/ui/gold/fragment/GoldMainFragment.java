@@ -1,26 +1,25 @@
 package com.codeest.geeknews.ui.gold.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.Constants;
 import com.codeest.geeknews.base.BaseFragment;
+import com.codeest.geeknews.base.contract.gold.GoldMainContract;
 import com.codeest.geeknews.model.bean.GoldManagerBean;
 import com.codeest.geeknews.model.bean.GoldManagerItemBean;
 import com.codeest.geeknews.presenter.gold.GoldMainPresenter;
-import com.codeest.geeknews.base.contract.gold.GoldMainContract;
 import com.codeest.geeknews.ui.gold.activity.GoldManagerActivity;
 import com.codeest.geeknews.ui.gold.adapter.GoldPagerAdapter;
+import com.codeest.geeknews.util.Misc;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by codeest on 16/11/27.
@@ -83,9 +82,9 @@ public class GoldMainFragment extends BaseFragment<GoldMainPresenter> implements
 
     @Override
     public void jumpToManager(GoldManagerBean mBean) {
-        Intent intent = new Intent(getActivity(), GoldManagerActivity.class);
-        intent.putExtra(Constants.IT_GOLD_MANAGER, mBean);
-        mContext.startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Constants.IT_GOLD_MANAGER, mBean);
+        Misc.startActivity(mContext, GoldManagerActivity.class, bundle);
     }
 
     @OnClick(R.id.iv_gold_menu)

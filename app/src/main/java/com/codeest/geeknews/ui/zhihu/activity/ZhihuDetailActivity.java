@@ -1,6 +1,7 @@
 package com.codeest.geeknews.ui.zhihu.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +10,9 @@ import android.view.KeyEvent;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.OnClick;
+import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.Constants;
@@ -19,16 +23,12 @@ import com.codeest.geeknews.model.bean.DetailExtraBean;
 import com.codeest.geeknews.model.bean.ZhihuDetailBean;
 import com.codeest.geeknews.presenter.zhihu.ZhihuDetailPresenter;
 import com.codeest.geeknews.util.HtmlUtil;
+import com.codeest.geeknews.util.Misc;
 import com.codeest.geeknews.util.ShareUtil;
 import com.codeest.geeknews.util.SystemUtil;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
-
-import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by codeest on 16/8/13.
@@ -199,13 +199,12 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
 
     @OnClick(R.id.tv_detail_bottom_comment)
     void gotoComment() {
-        Intent intent = getIntent();
-        intent.setClass(this,CommentActivity.class);
-        intent.putExtra(Constants.IT_ZHIHU_COMMENT_ID, id);
-        intent.putExtra(Constants.IT_ZHIHU_COMMENT_ALL_NUM, allNum);
-        intent.putExtra(Constants.IT_ZHIHU_COMMENT_SHORT_NUM, shortNum);
-        intent.putExtra(Constants.IT_ZHIHU_COMMENT_LONG_NUM, longNum);
-        startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putInt(Constants.IT_ZHIHU_COMMENT_ID, id);
+        bundle.putInt(Constants.IT_ZHIHU_COMMENT_ALL_NUM, allNum);
+        bundle.putInt(Constants.IT_ZHIHU_COMMENT_SHORT_NUM, shortNum);
+        bundle.putInt(Constants.IT_ZHIHU_COMMENT_LONG_NUM, longNum);
+        Misc.startActivity(this, CommentActivity.class, bundle);
     }
 
     @OnClick(R.id.tv_detail_bottom_share)
