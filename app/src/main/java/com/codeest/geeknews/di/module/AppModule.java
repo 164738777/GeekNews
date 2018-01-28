@@ -15,6 +15,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * 提供 HttpHelper，DBHelper， PreferencesHelper
  * Created by codeest on 16/8/7.
  */
 

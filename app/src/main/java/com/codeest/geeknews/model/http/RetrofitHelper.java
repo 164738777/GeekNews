@@ -38,6 +38,7 @@ import javax.inject.Inject;
 import io.reactivex.Flowable;
 
 /**
+ * {@link HttpHelper} 的实现类
  * Created by codeest on 2016/8/3.
  */
 public class RetrofitHelper implements HttpHelper {

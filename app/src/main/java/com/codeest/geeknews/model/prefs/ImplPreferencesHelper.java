@@ -11,7 +11,7 @@ import javax.inject.Inject;
 /**
  * @author: Est <codeest.dev@gmail.com>
  * @date: 2017/4/21
- * @description:
+ * @description: {@link PreferencesHelper} 的实现类
  */
 
 public class ImplPreferencesHelper implements PreferencesHelper {

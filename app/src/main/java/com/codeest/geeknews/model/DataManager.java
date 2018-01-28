@@ -36,7 +36,7 @@ import io.reactivex.Flowable;
 /**
  * @author: Est <codeest.dev@gmail.com>
  * @date: 2017/4/21
- * @desciption:
+ * @desciption: 数据管理中心
  */
 
 public class DataManager implements HttpHelper, DBHelper, PreferencesHelper {

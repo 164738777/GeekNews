@@ -49,6 +49,9 @@ public class WelcomePresenter extends RxPresenter<WelcomeContract.View> implemen
         );
     }
 
+    /**
+     * 倒计时2200ms后跳转MainActivity.
+     */
     private void startCountDown() {
         addSubscribe(Flowable.timer(COUNT_DOWN_TIME, TimeUnit.MILLISECONDS)
                 .compose(RxUtil.<Long>rxSchedulerHelper())

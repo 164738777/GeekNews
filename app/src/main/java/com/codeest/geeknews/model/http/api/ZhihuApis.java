@@ -27,6 +27,7 @@ public interface ZhihuApis {
     /**
      * 启动界面图片
      */
+    // FIXME: 2018/1/28 启动界面Api失效
     @GET("start-image/{res}")
     Flowable<WelcomeBean> getWelcomeInfo(@Path("res") String res);
 
