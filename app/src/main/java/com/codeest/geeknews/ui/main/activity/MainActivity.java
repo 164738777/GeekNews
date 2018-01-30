@@ -12,16 +12,18 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import butterknife.BindView;
+import me.yokeyword.fragmentation.SupportFragment;
 
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.app.App;
 import com.codeest.geeknews.app.Constants;
 import com.codeest.geeknews.base.BaseActivity;
+import com.codeest.geeknews.base.contract.main.MainContract;
 import com.codeest.geeknews.component.RxBus;
 import com.codeest.geeknews.component.UpdateService;
 import com.codeest.geeknews.model.event.SearchEvent;
 import com.codeest.geeknews.presenter.main.MainPresenter;
-import com.codeest.geeknews.base.contract.main.MainContract;
 import com.codeest.geeknews.ui.gank.fragment.GankMainFragment;
 import com.codeest.geeknews.ui.gold.fragment.GoldMainFragment;
 import com.codeest.geeknews.ui.main.fragment.AboutFragment;
@@ -33,9 +35,6 @@ import com.codeest.geeknews.ui.zhihu.fragment.ZhihuMainFragment;
 import com.codeest.geeknews.util.SystemUtil;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-
-import butterknife.BindView;
-import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * Created by codeest on 16/8/9.

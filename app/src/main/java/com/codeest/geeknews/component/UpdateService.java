@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -51,16 +50,13 @@ public class UpdateService extends Service {
 
     private void startDownload() {
         DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-        DownloadManager.Request request = new DownloadManager.Request(
-                Uri.parse(MyApis.APK_DOWNLOAD_URL));
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(MyApis.APK_DOWNLOAD_URL));
         request.setTitle("GeekNews");
         request.setDescription("新版本下载中");
         request.setMimeType("application/vnd.android.package-archive");
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "geeknews.apk");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            request.allowScanningByMediaScanner();
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        }
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         dm.enqueue(request);
         ToastUtil.shortShow("后台下载中，请稍候...");
     }

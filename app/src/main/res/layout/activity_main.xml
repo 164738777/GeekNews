@@ -1,40 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    >
 
     <android.support.v4.widget.DrawerLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        >
 
         <LinearLayout
-            android:orientation="vertical"
-            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            >
 
             <FrameLayout
                 android:id="@+id/toolbar_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
-                <include layout="@layout/view_toolbar"
-                    android:id="@+id/toolbar"/>
+                <include
+                    layout="@layout/view_toolbar"
+                    android:id="@+id/toolbar"
+                    />
 
                 <com.miguelcatalan.materialsearchview.MaterialSearchView
                     android:id="@+id/view_search"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    />
             </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/fl_main_content"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                />
         </LinearLayout>
 
         <android.support.design.widget.NavigationView
@@ -44,10 +53,9 @@
             android:layout_gravity="start"
             android:background="@color/drawer_item_bg_n"
             app:headerLayout="@layout/view_drawer_header"
-            app:menu="@menu/drawer_menu"
             app:itemBackground="@drawable/drawer_item_bg"
-            >
-        </android.support.design.widget.NavigationView>
+            app:menu="@menu/drawer_menu"
+            />
     </android.support.v4.widget.DrawerLayout>
 </RelativeLayout>
 
