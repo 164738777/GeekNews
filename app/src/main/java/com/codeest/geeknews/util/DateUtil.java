@@ -1,13 +1,13 @@
 package com.codeest.geeknews.util;
 
+import static java.lang.System.currentTimeMillis;
+
 import android.support.annotation.Nullable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-import static java.lang.System.currentTimeMillis;
 
 /**
  * Created by codeest on 16/8/13.
@@ -25,7 +25,7 @@ public class DateUtil {
     }
 
     /**
-     * 获取当前日期
+     * 获取当前日期的‘明天’
      * @return
      */
     public static String getTomorrowDate() {
